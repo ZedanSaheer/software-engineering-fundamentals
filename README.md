@@ -1,2 +1,12 @@
-# software-engineering-fundamentals
-This is my idea towards building a central repository revolving around what I learn, How I am learning and breaking down the information in this vast subject into fine contents and notes as I learn forward. This will be a long term repository.
+# Software Engineering Fundamentals
+---
+
+What if I could put all my learning into one single structure mono-repo? That is the basic goal for this repository. To put together various topics and divisions inside Software Engineering together as I move forward in my learning journey.
+
+## Where do we start?
+
+Starting from the very basics :
+- Networking
+- Data Structures 
+- Databases
+- Algorithms 
