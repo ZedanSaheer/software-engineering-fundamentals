@@ -1,5 +1,5 @@
 # Software Engineering Fundamentals
----
+
 
 What if I could put all my learning into one single structure mono-repo? That is the basic goal for this repository. To put together various topics and divisions inside Software Engineering together as I move forward in my learning journey.
 
