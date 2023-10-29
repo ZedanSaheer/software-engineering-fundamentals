@@ -1,4 +1,4 @@
-![The Core - Data Structures and Algorithms - Banner](./core.png)
+![The Core - Data Structures and Algorithms - Banner](../assets/core.png)
 
 # The Core 
 
