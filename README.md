@@ -1,4 +1,4 @@
-![Software Engineering is not just code - Banner](./software-engineering.png)
+![Software Engineering is not just code - Banner](./assets/software-engineering.png)
 
 # Software Engineering Fundamentals
 
