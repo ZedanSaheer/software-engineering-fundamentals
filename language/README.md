@@ -1,1 +1,1 @@
-![Languages - Banner](../assets/languages.png)
+![Languages - Banner](../assets/languages/languages.png)

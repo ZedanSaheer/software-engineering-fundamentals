@@ -1,1 +1,1 @@
-![The Backend - Backend Engineering - Banner](../assets/backend.png)
+![The Backend - Backend Engineering - Banner](../assets/backend/backend.png)
