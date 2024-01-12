@@ -6,4 +6,4 @@ Logarithms are the inverses of exponents. They allow us to solve challenging exp
 
 Basically all I have to know is that logarithm teaches us how many times you have to multiply a number by itself to get another number, Which helps us in one way define the complexity invovled in the steps of any algorithm.
 
-![Explaining logorithm](logorithm.png)
+![Explaining logorithm](../../assets/core/logorithm.png)
