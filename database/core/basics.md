@@ -1,17 +1,16 @@
 ## What is the 'basics'?
-
 The basics simply means anything beyond the certain entry level concepts of database that we must already know, I do not wish to write what is a database, Why it is used or anything as such because those are definitions, We are here for depth. Definitions means you need an introduction, This is not an introduction but the basics. Fundamentals to be precise.
 
-# A C I D - Atomicity, Consistency, Isolation and Durability
 
+# A C I D - Atomicity, Consistency, Isolation and Durability
 One of the most important concepts to start understanding a Database is the **ACID**. It consist of four simple terms that define the criteria for assessing consistency. Before we dive deep into the ACID properties.
 
-### What is a transaction? 
 
+### What is a transaction? 
 A transaction is simply a logical unit of work that accesses and modifies the contents of a database usually through read or write operations.
 
-## A - Atomicity
 
+## A - Atomicity
 All queries in a transaction must succeed, So atomicity makes sure there is a 100% completion or returns (rollback) to the previous commits. Regardless of failed transaction or a single query failing, The transaction is rolled back.
 
 Eg : Send $100 from Account 1 to Account 2
@@ -38,6 +37,26 @@ This would result in a database crash where the system restarts with $100 subtra
 That is simply atomicity, Just like atoms tied together or simply killed.
 
 ## I - Isolation
+Each transaction happens in a distinct order without any transaction occuring in tandem. This simply means that any read or write performed on the database will not be impacted by other read or writes of a seperate transaction occuring on the same database.
+
+### Isolation - Read phenomena 
+There can be three different read phenomena when a transaction retrieves data that another transaction might have updated.
+
+#### Dirty reads 
+Dirty read is when one transaction directly affects results of a read of another transaction. The transaction may not be commited giving completely dirty results in other transaction based on current changes. 
+
+
+#### Non-repeatable reads
+Non-repeatable reads is similar to dirty reads but the transaction is usually commited which makes it inconsistent yet not dirty since the parallel transaction that can cause change in value is usually commited.
+
+#### Phantom reads
+Phantom reads occur when a transaction retrieves rows twice and rows are inserted or removed from that set by another transaction that is commited in between.
+
+### Isolation Levels
+- **Read uncommited** - No isolation, Any change from outside is visible to the transaction commited or not.
+- **Read commited** - Each query in a transaction only sees commited changes by other transactions
+- **Repeatable read** - The transaction will make sure that when a query reads a row that row will remain unchanged while it's running
+- **Snapshot** - Each query in a transaction only sees changes that have been commited to the start of the transaction. 
 
 
 
