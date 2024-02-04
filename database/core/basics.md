@@ -36,10 +36,17 @@ This would result in a database crash where the system restarts with $100 subtra
 
 That is simply atomicity, Just like atoms tied together or simply killed.
 
+## C - Consistency
+Consistency can be understood as after a successful write, update or delete of a Record, any read request immediately receives the latest value of the Record.
+
+Consistency is a broad term and applies to many areas like data, reads and writes in a database.
+
+Consistency is usuaully defined by the user. The Database admin is usually the one having the idea for the amount of consistency guaranteed in the current architechture.
+
 ## I - Isolation
 Each transaction happens in a distinct order without any transaction occuring in tandem. This simply means that any read or write performed on the database will not be impacted by other read or writes of a seperate transaction occuring on the same database.
 
-### Isolation - Read phenomena 
+### Read phenomena 
 There can be three different read phenomena when a transaction retrieves data that another transaction might have updated.
 
 #### Dirty reads 
@@ -57,7 +64,14 @@ Phantom reads occur when a transaction retrieves rows twice and rows are inserte
 - **Read commited** - Each query in a transaction only sees commited changes by other transactions
 - **Repeatable read** - The transaction will make sure that when a query reads a row that row will remain unchanged while it's running
 - **Snapshot** - Each query in a transaction only sees changes that have been commited to the start of the transaction. 
+- **Serializable** - Transactions are run as if they serialized one after the other.
+
+### Isolation Implementation
+Different database approach isolation differently. There is basically the use of locks to avoid lost updates. The locks are simply meaning not allowing any other transaction to act on it. There are optimistic and pessimistic approaches towards the implementation of isolation on databases.
+
+## D - Durability
+Changes made by commited transactions must be persisted in a durable non-volatile storage.
+
+There are different Durability techniques like Write ahead log, Asynchronous Snapshot, Append only file.
 
 
-
-  
