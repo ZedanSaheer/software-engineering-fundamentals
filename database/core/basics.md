@@ -35,4 +35,10 @@ UPDATE ACCOUNT SET BALANCE = BALANCE - 100 WHERE ID = 1
  
 This would result in a database crash where the system restarts with $100 subtracted from total balance. The other account has not been credited as well which has resulted in the lack of atomicity, Which means this transaction has to be rolled back to it's original commited state.
 
+That is simply atomicity, Just like atoms tied together or simply killed.
 
+## I - Isolation
+
+
+
+  
