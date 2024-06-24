@@ -74,4 +74,51 @@ Changes made by commited transactions must be persisted in a durable non-volatil
 
 There are different Durability techniques like Write ahead log, Asynchronous Snapshot, Append only file.
 
+Sure, here's the content converted to Markdown format:
 
+---
+
+## Serializable vs Repeatable Reads
+
+Serializable and repeatable reads are two isolation levels in database transaction management that control the visibility of data changes made by concurrent transactions. Here's a comparison of the two:
+
+### Serializable Isolation Level
+
+**Definition**: Serializable is the highest level of isolation. It ensures that transactions are executed in a way that they appear to be executed sequentially, one after the other, rather than concurrently. This means no other transactions can interfere with the execution of a transaction.
+
+**Characteristics**:
+1. **Prevents All Anomalies**: Prevents dirty reads, non-repeatable reads, and phantom reads.
+2. **Implementation**: Typically implemented using locking (e.g., two-phase locking), snapshot isolation, or serializable snapshot isolation.
+3. **Performance**: Can lead to lower concurrency and higher latency, as transactions may need to wait for others to complete.
+4. **Use Case**: Suitable for scenarios where consistency is critical and the cost of potential blocking is acceptable.
+
+### Repeatable Read Isolation Level
+
+**Definition**: Repeatable read ensures that if a transaction reads a row, it will see the same data throughout its execution, even if other transactions modify it. However, it does not protect against new rows being added (phantom reads).
+
+**Characteristics**:
+1. **Prevents Dirty and Non-Repeatable Reads**: Ensures that once a transaction reads data, subsequent reads will see the same data, even if other transactions modify it. However, new rows can be added by other transactions, leading to phantom reads.
+2. **Implementation**: Often implemented using locking mechanisms that prevent writes to rows read by a transaction until it completes.
+3. **Performance**: Offers a balance between consistency and concurrency, generally allowing higher concurrency than serializable.
+4. **Use Case**: Suitable for scenarios where non-repeatable reads and dirty reads are unacceptable but where the possibility of phantom reads is tolerable.
+
+### Summary of Differences
+
+| Aspect                     | Serializable                                     | Repeatable Read                              |
+|----------------------------|--------------------------------------------------|----------------------------------------------|
+| **Isolation Level**        | Highest                                          | Medium-high                                  |
+| **Prevents Dirty Reads**   | Yes                                              | Yes                                          |
+| **Prevents Non-Repeatable Reads** | Yes                                      | Yes                                          |
+| **Prevents Phantom Reads** | Yes                                              | No                                           |
+| **Concurrency**            | Low (due to higher locking and waiting)          | Higher than serializable                     |
+| **Typical Use Case**       | Critical consistency requirements                | High consistency needs with better concurrency|
+
+### Example Scenarios
+
+1. **Serializable**: Banking systems where ensuring no anomalies like lost updates, dirty reads, or phantoms is critical. E.g., transferring money between accounts must be fully isolated to prevent any inconsistency.
+
+2. **Repeatable Read**: Inventory systems where consistency is essential, but slight concurrency is permissible. E.g., reading product details and quantities for order processing where ensuring the same product data is seen throughout the transaction is critical, but new products being added by other transactions is tolerable.
+
+Understanding these differences helps in choosing the right isolation level based on the application's consistency and concurrency needs.
+
+---
